@@ -1,5 +1,5 @@
 $(function() {
-  audioPlayer.load();       //loading fxn load values in var audioPlayer                     
+  audioPlayer.load();       //calling load() fxn which is stored in audioplayer var                     
   if (window['webkitSpeechRecognition']) {
     var speechRecognizer = new webkitSpeechRecognition();
     // recognition will not end when user stops speaking if set to true
@@ -22,7 +22,8 @@ $(function() {
           try {
             results.forEach(function (val, i) {   //The forEach() method calls a provided function once for each element in an array, in order.
               var el = val[0][0].transcript.toLowerCase();
-              if (currentCommands.indexOf(el.split(" ")[0]) !== -1) {
+              if (currentCommands.indexOf(el.split(" ")[0]) !== -1) {  //split() method is used to split a string into an array of substrings, and returns the new array.
+                                                                    //indexOf() method tells index of
                 speechRecognizer.abort();
                 audioPlayer.processCommands(el);
                 audioPlayer.toggleSpinner();
